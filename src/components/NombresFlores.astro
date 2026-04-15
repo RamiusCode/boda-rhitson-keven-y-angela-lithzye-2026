@@ -14,7 +14,7 @@ const FECHA_BODA = "09 de mayo del 2026";
       id="parallax-image"
       src="/imagenes/foto1.webp"
       alt={`${NOMBRE_1} y ${NOMBRE_2}`}
-      class="w-full h-full object-cover animate-[zoom-in_2s_ease-out] transition-transform duration-300 ease-out will-change-transform"
+      class="w-full h-full object-cover object-top animate-[zoom-in_2s_ease-out] transition-transform duration-300 ease-out will-change-transform"
     />
     <div
       class="absolute inset-0 bg-black/40 animate-[fade-in_1.5s_ease-out] z-[2]"
@@ -121,10 +121,10 @@ const FECHA_BODA = "09 de mayo del 2026";
     </p>
 
     <!-- Espaciador flexible -->
-    <div class="flex-grow"></div>
+    <div class="h-16"></div>
 
     <!-- Nombres -->
-    <div class="mb-4 space-y-4">
+    <div class="space-y-4">
       <h1
         class="font-great-vibes text-5xl md:text-7xl lg:text-8xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] leading-tight italic font-light animate-[slide-up_1.5s_ease-out_0.2s_both]"
       >
@@ -152,6 +152,9 @@ const FECHA_BODA = "09 de mayo del 2026";
         {NOMBRE_2}
       </h1>
     </div>
+
+    <!-- Espaciador flexible -->
+    <div class="flex-grow"></div>
 
     <!-- Fecha -->
     <div

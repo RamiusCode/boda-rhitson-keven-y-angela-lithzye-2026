@@ -3,22 +3,22 @@
 ---
 
 <section
-    class="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden"
+    class="relative w-full flex flex-col items-center justify-center overflow-hidden"
 >
     <!-- Fondo con imagen ESTÁTICA -->
-    <div class="absolute inset-0 z-0">
+    <div class="relative w-full z-0">
         <img
             id="parallax-image-3"
             src="/imagenes/foto3.webp"
             alt="Fotografía de boda"
-            class="w-full h-full object-cover opacity-0"
+            class="w-full object-contain opacity-0"
         />
-        <div class="absolute inset-0 bg-black/30 opacity-0" id="overlay-3">
-        </div>
+        <!-- <div class="absolute inset-0 bg-black/30 opacity-0" id="overlay-3">
+        </div> -->
     </div>
 
     <!-- Partículas flotantes elegantes -->
-    <div
+    <!-- <div
         class="absolute inset-0 z-5 pointer-events-none"
         id="particles-container-3"
     >
@@ -102,7 +102,7 @@
             class="particle-3 absolute top-[72%] left-[55%] w-1.5 h-1.5 bg-white/70 rounded-full shadow-[0_0_15px_rgba(255,255,255,0.9)] opacity-0"
         >
         </div>
-    </div>
+    </div> -->
 
     <!-- Indicador de scroll elegante -->
     <div
@@ -142,7 +142,7 @@
             );
 
             // Estado inicial
-            gsap.set(image, { scale: 1.3, opacity: 0 });
+            gsap.set(image, { scale: 1, opacity: 0 });
             gsap.set(overlay, { opacity: 0 });
             gsap.set(particles, { opacity: 0, scale: 0 });
             gsap.set(scrollIndicator, { opacity: 0, y: -10 });
@@ -160,7 +160,6 @@
                     tl.to(
                         image,
                         {
-                            scale: 1,
                             opacity: 1,
                             duration: 2.5,
                             ease: "power2.out",
@@ -277,7 +276,6 @@
                         .to(
                             image,
                             {
-                                scale: 1.3,
                                 opacity: 0,
                                 duration: 0.8,
                                 ease: "power2.in",
