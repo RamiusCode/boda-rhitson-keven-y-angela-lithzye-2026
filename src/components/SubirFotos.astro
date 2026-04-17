@@ -1,0 +1,448 @@
+---
+// SubirFotos.astro
+---
+
+<section class="relative w-full py-4 px-6 overflow-hidden">
+    <!-- Partículas flotantes de fondo -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div
+            class="particula-dorada-sf"
+            style="left: 10%; top: 20%; animation-delay: 0s;"
+        >
+        </div>
+        <div
+            class="particula-dorada-sf"
+            style="left: 85%; top: 30%; animation-delay: 1.5s;"
+        >
+        </div>
+        <div
+            class="particula-dorada-sf"
+            style="left: 15%; top: 70%; animation-delay: 3s;"
+        >
+        </div>
+        <div
+            class="particula-dorada-sf"
+            style="left: 90%; top: 65%; animation-delay: 2s;"
+        >
+        </div>
+    </div>
+
+    <div
+        class="max-w-sm lg:max-w-3xl mx-auto relative z-10"
+        id="contenedor-subirfotos"
+    >
+        <!-- MARCO PRINCIPAL CON EFECTO GLASSMORPHISM -->
+        <div
+            class="backdrop-blur-sm rounded-3xl border-2 border-[#4a5e3d]/25 p-8 shadow-sm relative overflow-hidden"
+        >
+            <!-- Brillo sutil animado en la esquina -->
+            <div
+                class="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-[#4a5e3d]/10 to-transparent rounded-full blur-3xl animate-pulse-slow-sf"
+            >
+            </div>
+            <div
+                class="absolute -bottom-20 -left-20 w-40 h-40 bg-gradient-to-tr from-[#4a5e3d]/8 to-transparent rounded-full blur-3xl animate-pulse-slow-sf"
+                style="animation-delay: 1s;"
+            >
+            </div>
+
+            <!-- CONTENIDO -->
+            <div class="text-center relative" id="tarjeta-subirfotos">
+                <!-- Icono de foto -->
+                <div class="flex justify-center mb-6">
+                    <div class="w-16 h-16 relative foto-icon-container">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-[#9C7A2E]/20 to-[#9C7A2E]/5 rounded-full blur-xl animate-pulse-slow-sf"
+                        >
+                        </div>
+                        <img
+                            src="/iconos/foto.png"
+                            alt="Icono de foto"
+                            class="w-full h-full object-contain relative z-10 transform transition-transform duration-300 hover:scale-110 verde-filter-sf"
+                        />
+                    </div>
+                </div>
+
+                <!-- Título principal -->
+                <h3
+                    class="text-[#9C7A2E] tracking-[0.3em] uppercase text-lg md:text-2xl mb-3 relative inline-block"
+                >
+                    Comparte tus fotos
+                </h3>
+
+                <!-- Línea decorativa -->
+                <div class="flex items-center justify-center gap-2 mb-6">
+                    <div
+                        class="w-12 h-px bg-gradient-to-r from-transparent to-[#4a5e3d]/30"
+                    >
+                    </div>
+                    <div class="w-2 h-2 rounded-full bg-[#4a5e3d]/40"></div>
+                    <div
+                        class="w-12 h-px bg-gradient-to-l from-transparent to-[#4a5e3d]/30"
+                    >
+                    </div>
+                </div>
+
+                <!-- Texto descriptivo -->
+                <p class="text-[#4a5e3d]/80 text-xl mb-8">
+                    Te invitamos a compartir tus fotografías de nuestra boda
+                </p>
+
+                <!-- Botón compartir fotos con mano -->
+                <div class="flex justify-center">
+                    <div class="relative">
+                        <a
+                            href="https://photos.app.goo.gl/CAyM6b1ddq9pMqo89"
+                            target="_blank"
+                            class="bg-[#4a5e3d] hover:bg-[#3a4e2d]
+                            text-white px-6 py-2.5 rounded text-sm md:text-base
+                            lg:text-lg xl:text-xl font-semibold transition-all
+                            duration-300 shadow-md hover:shadow-lg block"
+                            id="boton-subirfotos"
+                        >
+                            Compartir fotos
+                        </a>
+
+                        <!-- MANO apuntando al botón -->
+                        <img
+                            src="/imagenes/mano.png"
+                            alt="Presionar aquí"
+                            class="absolute -bottom-6 -right-6 md:-bottom-8 md:-right-8 lg:-bottom-10 lg:-right-10 w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 object-contain opacity-0 pointer-events-none z-20"
+                            id="mano-subirfotos"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hoja dorada izquierda -->
+    <img
+        src="/imagenes/hojadorada.png"
+        alt="hoja dorada"
+        class="absolute left-0 top-8 md:top-24 w-18 h-18 md:w-28 md:h-28 opacity-0 pointer-events-none z-20"
+        id="hoja-sf-left"
+    />
+
+    <!-- Hoja dorada derecha -->
+    <img
+        src="/imagenes/hojadorada.png"
+        alt="hoja dorada"
+        class="absolute right-0 top-8 md:top-24 w-18 h-18 md:w-28 md:h-28 opacity-0 pointer-events-none z-20 scale-x-[-1]"
+        id="hoja-sf-right"
+    />
+
+    <!-- Flor lateral izquierda -->
+    <img
+        src="/imagenes/florlateral.png"
+        alt="hojas"
+        class="absolute left-0 top-12 md:top-24 w-18 h-18 md:w-28 md:h-28 opacity-0 pointer-events-none z-30"
+        id="flor-sf-left"
+    />
+
+    <!-- Flor lateral derecha -->
+    <img
+        src="/imagenes/florlateral.png"
+        alt="hojas"
+        class="absolute right-0 top-12 md:top-24 w-18 h-18 md:w-28 md:h-28 opacity-0 pointer-events-none z-30 scale-x-[-1]"
+        id="flor-sf-right"
+    />
+</section>
+
+<style>
+    .particula-dorada-sf {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: radial-gradient(circle, #9c7a2e 0%, transparent 70%);
+        border-radius: 50%;
+        animation: flotar-sf 6s ease-in-out infinite;
+        opacity: 0.4;
+    }
+
+    @keyframes flotar-sf {
+        0%,
+        100% {
+            transform: translateY(0) translateX(0);
+            opacity: 0.2;
+        }
+        50% {
+            transform: translateY(-30px) translateX(15px);
+            opacity: 0.6;
+        }
+    }
+
+    @keyframes pulse-slow-sf {
+        0%,
+        100% {
+            opacity: 0.4;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.6;
+            transform: scale(1.05);
+        }
+    }
+
+    .animate-pulse-slow-sf {
+        animation: pulse-slow-sf 4s ease-in-out infinite;
+    }
+
+    .verde-filter-sf {
+        filter: brightness(0) saturate(100%) invert(18%) sepia(42%)
+            saturate(525%) hue-rotate(115deg) brightness(78%) contrast(105%);
+    }
+</style>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const initSubirFotos = () => {
+        gsap.set("#contenedor-subirfotos", { opacity: 0, y: 50, scale: 0.95 });
+        gsap.set("#tarjeta-subirfotos", { opacity: 0, y: 20 });
+        gsap.set("#mano-subirfotos", { opacity: 0, scale: 0.8 });
+
+        gsap.set("#flor-sf-left", {
+            opacity: 0,
+            x: -40,
+            rotation: -8,
+            scale: 0.9,
+        });
+        gsap.set("#flor-sf-right", {
+            opacity: 0,
+            x: 40,
+            rotation: 8,
+            scaleX: -0.9,
+            scaleY: 0.9,
+        });
+        gsap.set("#hoja-sf-left", {
+            opacity: 0,
+            scale: 0,
+            rotation: -6,
+            transformOrigin: "bottom center",
+        });
+        gsap.set("#hoja-sf-right", {
+            opacity: 0,
+            scaleX: 0,
+            scaleY: 0,
+            rotation: 6,
+            transformOrigin: "bottom center",
+        });
+
+        ScrollTrigger.create({
+            trigger: "#contenedor-subirfotos",
+            start: "top 75%",
+            end: "top 20%",
+
+            onEnter: () => {
+                const tl = gsap.timeline();
+
+                tl.to(
+                    "#contenedor-subirfotos",
+                    {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 1.6,
+                        ease: "power3.out",
+                    },
+                    0,
+                )
+                    .to(
+                        "#flor-sf-left",
+                        {
+                            opacity: 0.75,
+                            x: 0,
+                            rotation: -3,
+                            scale: 1,
+                            duration: 2.8,
+                            ease: "sine.out",
+                        },
+                        0,
+                    )
+                    .to(
+                        "#flor-sf-right",
+                        {
+                            opacity: 0.75,
+                            x: 0,
+                            rotation: 3,
+                            scaleX: -1,
+                            scaleY: 1,
+                            duration: 2.8,
+                            ease: "sine.out",
+                        },
+                        0.05,
+                    )
+                    .to(
+                        "#hoja-sf-left",
+                        {
+                            opacity: 0.7,
+                            scale: 0.9,
+                            rotation: -3,
+                            duration: 2.2,
+                            ease: "sine.out",
+                        },
+                        0.1,
+                    )
+                    .to(
+                        "#hoja-sf-right",
+                        {
+                            opacity: 0.7,
+                            scaleX: -0.9,
+                            scaleY: 0.9,
+                            rotation: 3,
+                            duration: 2.2,
+                            ease: "sine.out",
+                        },
+                        0.15,
+                    )
+                    .to(
+                        "#tarjeta-subirfotos",
+                        { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
+                        0.8,
+                    )
+                    .to(
+                        "#mano-subirfotos",
+                        {
+                            opacity: 1,
+                            scale: 1,
+                            duration: 0.5,
+                            ease: "back.out(2)",
+                        },
+                        0.5,
+                    );
+
+                gsap.to("#flor-sf-left", {
+                    y: -15,
+                    x: -8,
+                    rotation: -12,
+                    duration: 3,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut",
+                    delay: 3,
+                });
+                gsap.to("#flor-sf-right", {
+                    y: -12,
+                    x: 8,
+                    rotation: 12,
+                    duration: 3.3,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut",
+                    delay: 3.2,
+                });
+                gsap.to("#hoja-sf-left", {
+                    y: -18,
+                    rotation: -15,
+                    duration: 3.5,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut",
+                    delay: 3.3,
+                });
+                gsap.to("#hoja-sf-right", {
+                    y: -16,
+                    rotation: 15,
+                    duration: 3.8,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut",
+                    delay: 3.5,
+                });
+                gsap.to("#mano-subirfotos", {
+                    scale: 0.9,
+                    duration: 0.6,
+                    ease: "power1.inOut",
+                    repeat: -1,
+                    yoyo: true,
+                    delay: 3,
+                });
+            },
+
+            onLeaveBack: () => {
+                gsap.killTweensOf("#flor-sf-left");
+                gsap.killTweensOf("#flor-sf-right");
+                gsap.killTweensOf("#hoja-sf-left");
+                gsap.killTweensOf("#hoja-sf-right");
+                gsap.killTweensOf("#mano-subirfotos");
+
+                const tl = gsap.timeline();
+
+                tl.to("#tarjeta-subirfotos", {
+                    opacity: 0,
+                    y: 20,
+                    duration: 0.3,
+                    ease: "power2.in",
+                })
+                    .to(
+                        "#contenedor-subirfotos",
+                        {
+                            opacity: 0,
+                            y: 50,
+                            scale: 0.95,
+                            duration: 0.5,
+                            ease: "power2.in",
+                        },
+                        "<",
+                    )
+                    .to(
+                        "#flor-sf-left",
+                        { opacity: 0, x: -40, duration: 1, ease: "sine.in" },
+                        "<",
+                    )
+                    .to(
+                        "#flor-sf-right",
+                        { opacity: 0, x: 40, duration: 1, ease: "sine.in" },
+                        "<",
+                    )
+                    .to(
+                        "#hoja-sf-left, #hoja-sf-right",
+                        {
+                            opacity: 0,
+                            scale: 0,
+                            duration: 0.8,
+                            ease: "sine.in",
+                        },
+                        "<",
+                    )
+                    .to(
+                        "#mano-subirfotos",
+                        {
+                            opacity: 0,
+                            scale: 0.8,
+                            duration: 0.3,
+                            ease: "power2.in",
+                        },
+                        "<",
+                    )
+                    .set("#flor-sf-left", {
+                        rotation: -8,
+                        scale: 0.9,
+                        x: -40,
+                        y: 0,
+                    })
+                    .set("#flor-sf-right", {
+                        rotation: 8,
+                        scaleX: -0.9,
+                        scaleY: 0.9,
+                        x: 40,
+                        y: 0,
+                    })
+                    .set("#hoja-sf-left", { rotation: -6, scale: 0, y: 0 })
+                    .set("#hoja-sf-right", {
+                        scaleX: 0,
+                        scaleY: 0,
+                        rotation: 6,
+                        y: 0,
+                    });
+            },
+        });
+    };
+
+    document.addEventListener("DOMContentLoaded", initSubirFotos);
+    document.addEventListener("astro:page-load", initSubirFotos);
+</script>
